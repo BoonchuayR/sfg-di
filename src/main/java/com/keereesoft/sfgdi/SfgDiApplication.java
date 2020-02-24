@@ -1,6 +1,9 @@
 package com.keereesoft.sfgdi;
 
+import com.keereesoft.sfgdi.controllers.ConstructorInjectedController;
 import com.keereesoft.sfgdi.controllers.MyController;
+import com.keereesoft.sfgdi.controllers.PropertyInjectedController;
+import com.keereesoft.sfgdi.controllers.SetterBaseController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +17,18 @@ public class SfgDiApplication {
 		MyController myController = (MyController) ctx.getBean("myController");
 		String greeting = myController.sayHello();
 		System.out.println(greeting);
+
+		System.out.println("--------- Property");
+		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
+		System.out.println(propertyInjectedController.getGreeting());
+
+		System.out.println("--------- Setter Base");
+		SetterBaseController setterBaseController = (SetterBaseController) ctx.getBean("setterBaseController");
+		System.out.println(setterBaseController.getGreeting());
+
+		System.out.println("--------- Constructor");
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+		System.out.println(constructorInjectedController.sayGreeting());
 	}
 
 }

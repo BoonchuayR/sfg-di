@@ -4,14 +4,14 @@ import com.keereesoft.sfgdi.services.SetterInjectedGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PropertyInjectedControllerTest {
+class SetterBaseControllerTest {
 
-    PropertyInjectedController controller;
+    SetterBaseController controller;
 
     @BeforeEach
     void setUp() {
-        controller = new PropertyInjectedController();
-        controller.greetingService = new SetterInjectedGreetingService();
+        controller = new SetterBaseController();
+        controller.setGreetingService(new SetterInjectedGreetingService());
     }
 
     @Test
